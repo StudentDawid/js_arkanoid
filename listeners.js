@@ -39,7 +39,11 @@ function initializeKeyListeners() {
             if(newGame == 1){ //menu glowne
                 if (p.x >= menu_button_1.x && p.x <= menu_button_1.x + menu_button_1.w &&
                     p.y >= menu_button_1.y && p.y <= menu_button_1.y + menu_button_1.h){
-                    newGame=0;
+                    newGame=0; //new game
+                }
+                if (p.x >= menu_button_2.x && p.x <= menu_button_2.x + menu_button_2.w &&
+                    p.y >= menu_button_2.y && p.y <= menu_button_2.y + menu_button_2.h){
+                    newGame=3; //leaderboard
                 }
             } else if(newGame == 2){ //po poziomie
                 if (p.x >= play_again_button.x && p.x <= play_again_button.x + play_again_button.w &&
@@ -63,6 +67,15 @@ function initializeKeyListeners() {
                     initBalls();
                     initBricks();
                     newGame=0;
+                }
+            } else if(newGame==3){
+                if (p.x >= leaderboard_go_to_menu_button.x && p.x <= leaderboard_go_to_menu_button.x + leaderboard_go_to_menu_button.w &&
+                    p.y >= leaderboard_go_to_menu_button.y && p.y <= leaderboard_go_to_menu_button.y + leaderboard_go_to_menu_button.h){
+                    score_multipler=1;
+                    extra_speed_from_level=0;
+                    initBalls();
+                    initBricks();
+                    newGame=1;
                 }
             }
         }

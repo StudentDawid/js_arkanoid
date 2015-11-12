@@ -24,7 +24,7 @@ myAudio.addEventListener('ended', function() {
 }, false);
 myAudio.play();
 
-var newGame = 1;
+var newGame = 1; // 0 - new game, 1-menu, 2-menu po grze, 3 - leaderboard,
 var mouseClickX = 0;
 var mouseClickY = 0;
 
@@ -44,6 +44,13 @@ var menu_button_1 = {
     h: 30
 };
 
+var menu_button_2 = {
+    x: canvas.width/2 - 55,
+    y: 120,
+    w: 100,
+    h: 30
+};
+
 var play_again_button = {
     x: canvas.width/2 - 55,
     y: 80,
@@ -58,6 +65,13 @@ var go_to_menu_button = {
     h: 30
 };
 
+var leaderboard_go_to_menu_button = {
+    x: canvas.width/2 - 55,
+    y: canvas.height - 50,
+    w: 100,
+    h: 30
+};
+
 var next_level_button = {
     x: canvas.width/2 - 55,
     y: 160,
@@ -67,6 +81,9 @@ var next_level_button = {
 
 var menu_button_1_image = new Image();
 menu_button_1_image.src = "img/button.png";
+
+var menu_button_2_image = new Image();
+menu_button_2_image.src = "img/button.png";
 
 var play_again_button_image = new Image();
 play_again_button_image.src = "img/button.png";
@@ -80,6 +97,9 @@ next_level_button_image.src = "img/button.png";
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+var leaderboard_go_to_menu_button_image = new Image();
+leaderboard_go_to_menu_button_image.src = "img/button.png";
 
 function getMousePos(e) {
     var r = canvas.getBoundingClientRect();
