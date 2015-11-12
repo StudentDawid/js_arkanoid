@@ -31,6 +31,8 @@ function collisionWithMapEnd(ball){
 function collisionWithBrick(ball, brick){
     return RectCircleColliding(ball.x, ball.y, ball.ballRadius, brick.x, brick.y, brickWidth, brickHeight)
 }
+
+
 function collisionDetection() {
     var ball;
     var i, c, r, b;
@@ -63,11 +65,9 @@ function collisionDetection() {
       }
     }
     if (brick_status==0) {
-        // alert("YOU WIN, CONGRATS!");
-        end_game_message = "Win"
-        localStorage.setItem("wynik", score);
+        end_game_message = "Win";
+        setScore(score);
         newGame=2;
-        // document.location.reload();
     }
     ball=undefined;
 
@@ -86,8 +86,8 @@ function collisionDetection() {
     }
 
     if(destroyed_balls == balls.length) {
-        end_game_message = "Lose"
-        localStorage.setItem("wynik", score);
+        end_game_message = "Lose";
+        setScore(score);
         newGame=2;
     }
 }

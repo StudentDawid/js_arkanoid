@@ -1,21 +1,10 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-// canvas.style.width='100%';
-// canvas.style.height='400px';
-// canvas.width = canvas.offsetWidth;
-// canvas.height = canvas.offsetHeight;
-
 var menuImageObject = new Image();
 menuImageObject.src = "img/arkanoid.png";
-//menuImageObject.onload = function() {
-//    ctx.drawImage(this, 0, 0);
-//};
 canvas.width = window.innerWidth * 0.5;
 canvas.height = window.innerHeight*0.75;
-
-// var audio = new Audio('tetris_theme.mp3');
-// audio.play();
 
 var myAudio = new Audio('tetris_theme.mp3');
 myAudio.addEventListener('ended', function() {
@@ -23,6 +12,10 @@ myAudio.addEventListener('ended', function() {
     this.play();
 }, false);
 myAudio.play();
+
+var wynik_tmp;
+var wynik = [];
+localStorage["wynik"] = JSON.stringify(wynik);
 
 var newGame = 1; // 0 - new game, 1-menu, 2-menu po grze, 3 - leaderboard,
 var mouseClickX = 0;
@@ -107,4 +100,11 @@ function getMousePos(e) {
         x: e.clientX - r.left,
         y: e.clientY - r.top
     };
+}
+
+function setScore(score){
+    wynik_tmp = JSON.parse(localStorage["wynik"]);
+    console.log('koniec - '+wynik_tmp);
+    wynik_tmp.push(score);
+    localStorage["wynik"] = JSON.stringify(wynik_tmp);
 }

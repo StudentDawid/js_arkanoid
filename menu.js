@@ -49,7 +49,7 @@ function drawWinMenu() {
     if(end_game_message=="Win"){
       ctx.fillText("Next level", next_level_button.x+next_level_button.w/20, next_level_button.y+next_level_button.h/1.5);
     }
-    ctx.fillText("Score - "+localStorage.getItem("wynik"), go_to_menu_button.x+go_to_menu_button.w/20, go_to_menu_button.y+go_to_menu_button.h/1.5+100);
+    //ctx.fillText("Score - "+localStorage.getItem("wynik"), go_to_menu_button.x+go_to_menu_button.w/20, go_to_menu_button.y+go_to_menu_button.h/1.5+100);
 
 
     ctx.font = "20px Arial";
@@ -71,4 +71,12 @@ function drawLeaderboard() {
     ctx.font = "16px Arial";
     ctx.fillStyle = "black";
     ctx.fillText("     MENU", leaderboard_go_to_menu_button.x+leaderboard_go_to_menu_button.w/20, leaderboard_go_to_menu_button.y+leaderboard_go_to_menu_button.h/1.5);
+
+    //wynik_tmp = localStorage.getItem("wynik");
+    wynik_tmp = JSON.parse(localStorage["wynik"]);
+    console.log('wynik start - '+wynik_tmp.length);
+    for(var i=0;i<wynik_tmp.length;i++){
+        console.log(wynik_tmp[i]);
+    }
+    console.log('wynik stop');
 }
