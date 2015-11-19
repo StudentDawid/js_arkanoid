@@ -1,17 +1,27 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
+var canvas2 = document.getElementById("myLeftCanvas");
+var ctx2 = canvas2.getContext("2d");
+canvas2.width = window.innerWidth * 0.1;
+canvas2.height = window.innerHeight;
+
+var canvas3 = document.getElementById("myRightCanvas");
+var ctx3 = canvas3.getContext("2d");
+canvas3.width = window.innerWidth * 0.1;
+canvas3.height = window.innerHeight;
+
 var menuImageObject = new Image();
 menuImageObject.src = "img/arkanoid.png";
-canvas.width = window.innerWidth * 0.5;
-canvas.height = window.innerHeight*0.75;
+canvas.width = window.innerWidth* 0.79;
+canvas.height = window.innerHeight; //*0.8;
 
-var myAudio = new Audio('tetris_theme.mp3');
-myAudio.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
-}, false);
-myAudio.play();
+//var myAudio = new Audio('tetris_theme.mp3');
+//myAudio.addEventListener('ended', function() {
+//    this.currentTime = 0;
+//    this.play();
+//}, false);
+//myAudio.play();
 
 var wynik_tmp;
 var wynik = [];
@@ -32,43 +42,43 @@ var end_game_message = "";
 
 var menu_button_1 = {
     x: canvas.width/2 - 55,
-    y: 80,
+    y: 380,
     w: 100,
     h: 30
 };
 
 var menu_button_2 = {
     x: canvas.width/2 - 55,
-    y: 120,
-    w: 100,
+    y: 420,
+    w: 140,
     h: 30
 };
 
 var play_again_button = {
     x: canvas.width/2 - 55,
     y: 80,
-    w: 100,
+    w: 120,
     h: 30
 };
 
 var go_to_menu_button = {
     x: canvas.width/2 - 55,
     y: 120,
-    w: 100,
+    w: 140,
     h: 30
 };
 
 var leaderboard_go_to_menu_button = {
     x: canvas.width/2 - 55,
     y: canvas.height - 50,
-    w: 100,
+    w: 120,
     h: 30
 };
 
 var next_level_button = {
     x: canvas.width/2 - 55,
     y: 160,
-    w: 100,
+    w: 120,
     h: 30
 };
 

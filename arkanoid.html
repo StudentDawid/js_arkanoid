@@ -14,14 +14,24 @@
             display: block;
             margin: 0 auto;
         }
+
+        @font-face {
+            font-family: Arka_solid;
+            src: url(css/Arka_solid.ttf) format('truetype');
+        }
     </style>
 </head>
-<body>
-<div style="width:50%;height:50%; margin-left:25%;">
-    <canvas id="myCanvas"></canvas>
-</div>
+<body style="font-family: Arka_solid;">
+    <canvas id="myLeftCanvas" style="float: left;"></canvas>
+    <div style="float: left;">
+        <canvas id="myCanvas"></canvas>
+    </div>
+    <canvas id="myRightCanvas" style="float: left;"></canvas>
 
 
+<script src="cons.js"></script>
+<script src="left_canvas.js"></script>
+<script src="right_canvas.js"></script>
 <script src="cons.js"></script>
 <script src="listeners.js"></script>
 <script src="menu.js"></script>
@@ -34,22 +44,45 @@
 <script>
 
     function draw() {
-        if(newGame==1) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawLeftMenu();
+        drawRightMenu();
+
+        if(newGame==1) { //menu
+//            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.rect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "black";
+            ctx.fill();
+            ctx.closePath();
             drawMenu();
-        } else if (newGame==2) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        } else if (newGame==2) { //menu after game
+//            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.rect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "black";
+            ctx.fill();
+            ctx.closePath();
             drawBricks();
             drawBall();
             drawPaddle();
             drawScore();
             drawLives();
             drawWinMenu();
-        } else if(newGame==3) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        } else if(newGame==3) { //leaderboard
+//            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.rect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "black";
+            ctx.fill();
+            ctx.closePath();
             drawLeaderboard();
-        } else {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        } else { //game
+//            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.rect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "black";
+            ctx.fill();
+            ctx.closePath();
             drawBricks();
             drawBall();
             drawPaddle();

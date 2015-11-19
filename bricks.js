@@ -3,9 +3,9 @@ var bricks = [];
 var bricks_table = [
     [0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
     [0, 0, 0, 0, 1],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
 ];
 var brickRowCount = bricks_table.length;
 var brickColumnCount = bricks_table[0].length;

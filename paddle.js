@@ -1,5 +1,5 @@
 var paddleHeight = 10;
-var paddleWidth = 75;
+var paddleWidth = 175;
 var paddleX = (canvas.width - paddleWidth) / 2;
 var paddleY = canvas.height - paddleHeight;
 
@@ -9,7 +9,7 @@ var leftPressed = false;
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, paddleY, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#0066FF";
+    ctx.fillStyle = "#83E593";
     ctx.fill();
     ctx.closePath();
 }
